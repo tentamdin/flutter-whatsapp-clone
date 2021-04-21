@@ -11,6 +11,7 @@ class CallScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         title: Text("All / Missed"),
+        leadingWidth: 80,
         leading: AppbarLeading(
           leadingText: "Edit",
           leadingOnPressed: () {},

@@ -11,6 +11,7 @@ class StatusScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         title: Text("Status"),
+        leadingWidth: 100,
         leading: AppbarLeading(
           leadingText: "Privacy",
           leadingOnPressed: () {},

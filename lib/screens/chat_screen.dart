@@ -10,6 +10,7 @@ class ChatScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         title: Text("Chats"),
+        leadingWidth: 80,
         leading: AppbarLeading(
           leadingText: "Edit",
           leadingOnPressed: () {},
