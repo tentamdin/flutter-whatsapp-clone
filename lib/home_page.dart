@@ -37,15 +37,18 @@ class _HomePageState extends State<HomePage> {
 
 Widget menu() {
   return TabBar(
+    labelStyle: TextStyle(fontSize: 12),
+    labelPadding: EdgeInsets.all(0),
     labelColor: Colors.blue.shade900,
-    unselectedLabelColor: Colors.grey,
+    unselectedLabelColor: Colors.grey.shade700,
     indicatorSize: TabBarIndicatorSize.label,
     indicatorPadding: EdgeInsets.all(5.0),
-    indicatorColor: Colors.blue,
+    indicatorColor: Colors.transparent,
     tabs: [
       Tab(
         text: "Status",
         icon: Icon(CupertinoIcons.arrow_2_circlepath_circle),
+        // iconMargin: EdgeInsets.all(0),
       ),
       Tab(
         text: "Calls",
