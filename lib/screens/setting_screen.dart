@@ -3,16 +3,47 @@ import "package:flutter/material.dart";
 import 'package:flutter_whatsapp_clone/components/listTile_component.dart';
 import 'package:flutter_whatsapp_clone/components/listtile_dense.dart';
 
-class SettingScreen extends StatelessWidget {
+class SettingScreen extends StatefulWidget {
+  @override
+  _SettingScreenState createState() => _SettingScreenState();
+}
+
+class _SettingScreenState extends State<SettingScreen> {
+  bool _scroll = false;
+
+  ScrollController _controller;
+
+  _scrollListener() {
+    if (_controller.offset <= _controller.position.minScrollExtent &&
+        !_controller.position.outOfRange) {
+      setState(() {
+        _scroll = false;
+      });
+    } else {
+      setState(() {
+        _scroll = true;
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    _controller = ScrollController();
+    _controller.addListener(_scrollListener);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: _scroll ? Colors.white : Colors.transparent,
         elevation: 0,
-        title: Text("Settings"),
+        title: _scroll ? Text("Settings") : Text(""),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
+          controller: _controller,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
