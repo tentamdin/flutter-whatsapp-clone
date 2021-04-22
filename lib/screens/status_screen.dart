@@ -4,13 +4,43 @@ import 'package:flutter_whatsapp_clone/components/appbar_action_btn.dart';
 import 'package:flutter_whatsapp_clone/components/appbar_leading.dart';
 import 'package:flutter_whatsapp_clone/models/chat_model.dart';
 
-class StatusScreen extends StatelessWidget {
+class StatusScreen extends StatefulWidget {
+  @override
+  _StatusScreenState createState() => _StatusScreenState();
+}
+
+class _StatusScreenState extends State<StatusScreen> {
+  bool _scroll = false;
+
+  ScrollController _controller;
+
+  _scrollListener() {
+    if (_controller.offset <= _controller.position.minScrollExtent &&
+        !_controller.position.outOfRange) {
+      setState(() {
+        _scroll = false;
+      });
+    } else {
+      setState(() {
+        _scroll = true;
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    _controller = ScrollController();
+    _controller.addListener(_scrollListener);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: _scroll ? Colors.white : Colors.transparent,
         elevation: 0,
-        title: Text("Status"),
+        title: _scroll ? Text("Status") : Text(""),
         leadingWidth: 100,
         leading: AppbarLeading(
           leadingText: "Privacy",
@@ -25,6 +55,7 @@ class StatusScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
+          controller: _controller,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
