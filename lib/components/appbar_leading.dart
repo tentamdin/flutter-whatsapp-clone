@@ -10,9 +10,8 @@ class AppbarLeading extends StatelessWidget {
     return TextButton(
       child: Text(leadingText),
       style: TextButton.styleFrom(
-        primary: Colors.blue.shade900,
+        primary: Theme.of(context).accentColor,
         textStyle: TextStyle(
-          color: Colors.black,
           fontSize: 18,
         ),
       ),

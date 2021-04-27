@@ -11,12 +11,14 @@ class ListTileDense extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: Theme.of(context).backgroundColor,
       child: ListTile(
         leading: leadingWidget,
         title: Text(
           titleText,
-          style: TextStyle(fontWeight: FontWeight.normal, color: Colors.black),
+          style: TextStyle(
+            fontWeight: FontWeight.normal,
+          ),
         ),
         trailing: Icon(
           trailingIconData,

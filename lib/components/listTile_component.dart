@@ -16,7 +16,7 @@ class ListTileComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: Theme.of(context).backgroundColor,
       child: ListTile(
         leading: leadingWidget,
         title: Text(
@@ -30,7 +30,9 @@ class ListTileComponent extends StatelessWidget {
           padding: const EdgeInsets.only(top: 5.0),
           child: Text(
             secondText,
-            style: TextStyle(color: Colors.grey.shade800, fontSize: 15.0),
+            style: TextStyle(
+              fontSize: 15.0,
+            ),
           ),
         ),
         onTap: onTap,
