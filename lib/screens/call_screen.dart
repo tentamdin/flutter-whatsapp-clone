@@ -26,7 +26,7 @@ class CallScreen extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            color: Colors.white,
+            color: Theme.of(context).primaryColor,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,9 +37,9 @@ class CallScreen extends StatelessWidget {
                     "Calls",
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold),
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 Padding(
@@ -49,22 +49,40 @@ class CallScreen extends StatelessWidget {
                     decoration: new InputDecoration(
                       prefixIcon: Icon(
                         Icons.search,
-                        color: Colors.grey.shade800,
+                        color: Theme.of(context)
+                            .inputDecorationTheme
+                            .prefixStyle
+                            .color,
                       ),
                       hintText: "Search",
                       filled: true,
-                      fillColor: Colors.grey.shade300,
+                      fillColor:
+                          Theme.of(context).inputDecorationTheme.fillColor,
                       contentPadding: EdgeInsets.all(0),
-                      hintStyle: TextStyle(color: Colors.grey.shade800),
+                      hintStyle: TextStyle(
+                          color: Theme.of(context)
+                              .inputDecorationTheme
+                              .hintStyle
+                              .color),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10.0)),
                         borderSide: BorderSide(
-                          color: Colors.grey.shade300,
+                          color: Theme.of(context)
+                              .inputDecorationTheme
+                              .enabledBorder
+                              .borderSide
+                              .color,
                         ),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                        borderSide: BorderSide(color: Colors.grey.shade300),
+                        borderSide: BorderSide(
+                          color: Theme.of(context)
+                              .inputDecorationTheme
+                              .enabledBorder
+                              .borderSide
+                              .color,
+                        ),
                       ),
                     ),
                   ),
@@ -79,8 +97,7 @@ class CallScreen extends StatelessWidget {
                       children: <Widget>[
                         ListTile(
                           leading: CircleAvatar(
-                            foregroundColor: Theme.of(context).primaryColor,
-                            backgroundImage: NetworkImage(data.avatarUrl),
+                            backgroundColor: Theme.of(context).accentColor,
                           ),
                           title: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -89,7 +106,10 @@ class CallScreen extends StatelessWidget {
                                 data.name,
                                 style: TextStyle(
                                   fontWeight: FontWeight.normal,
-                                  color: Colors.black,
+                                  color: Theme.of(context)
+                                      .appBarTheme
+                                      .titleTextStyle
+                                      .color,
                                 ),
                               ),
                               Row(
@@ -97,7 +117,7 @@ class CallScreen extends StatelessWidget {
                                   Text(
                                     data.time,
                                     style: TextStyle(
-                                        color: Colors.grey.shade900,
+                                        // color: Colors.grey.shade900,
                                         fontSize: 14.0),
                                   ),
                                   SizedBox(
@@ -105,7 +125,7 @@ class CallScreen extends StatelessWidget {
                                   ),
                                   Icon(
                                     Icons.info_outline,
-                                    color: Colors.blue.shade900,
+                                    color: Theme.of(context).accentColor,
                                   )
                                 ],
                               ),
@@ -118,7 +138,7 @@ class CallScreen extends StatelessWidget {
                                   Icon(
                                     Icons.phone,
                                     size: 20,
-                                    color: Colors.grey.shade600,
+                                    color: Theme.of(context).iconTheme.color,
                                   ),
                                   SizedBox(
                                     width: 5,
@@ -126,7 +146,8 @@ class CallScreen extends StatelessWidget {
                                   Text(
                                     data.callStatus,
                                     style: TextStyle(
-                                        color: Colors.grey.shade900,
+                                        color:
+                                            Theme.of(context).iconTheme.color,
                                         fontSize: 15.0),
                                   ),
                                 ],

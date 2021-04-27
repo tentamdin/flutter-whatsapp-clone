@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
           ),
           bottomNavigationBar: BottomAppBar(
             child: menu(),
-            color: Colors.white,
+            color: Theme.of(context).primaryColor,
           )),
     );
   }

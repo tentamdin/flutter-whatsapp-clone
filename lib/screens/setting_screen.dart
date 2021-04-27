@@ -37,184 +37,224 @@ class _SettingScreenState extends State<SettingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: _scroll ? Colors.white : Colors.transparent,
+        // backgroundColor: _scroll ? Colors.white : Colors.transparent,
         elevation: 0,
-        title: _scroll ? Text("Settings") : Text(""),
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          controller: _controller,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 10,
-                  left: 20,
-                ),
-                child: Text(
-                  "Settings",
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Divider(
-                height: 0,
-                thickness: 1,
-              ),
-              ListTileComponent(
-                leadingWidget: CircleAvatar(
-                    foregroundColor: Theme.of(context).primaryColor),
-                titleText: "Tenzin Tamdin",
-                trailingIconData: Icons.arrow_forward_ios,
-                secondText: "Conding and Wandering",
-                onTap: () {
-                  print("my name");
-                },
-              ),
-              Divider(
-                height: 0,
-                thickness: 1,
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Divider(
-                height: 0,
-                thickness: 1,
-              ),
-              ListTileDense(
-                leadingWidget: Icon(Icons.stars),
-                titleText: "Starred Messages",
-                trailingIconData: Icons.arrow_forward_ios,
-                onTap: () {},
-              ),
-              Divider(
-                height: 0,
-                thickness: 1,
-                indent: 70,
-              ),
-              ListTileDense(
-                leadingWidget: Icon(Icons.stars),
-                titleText: "WhatsApp Web/Destop",
-                trailingIconData: Icons.arrow_forward_ios,
-                onTap: () {},
-              ),
-              Divider(
-                height: 0,
-                thickness: 1,
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Divider(
-                height: 0,
-                thickness: 1,
-              ),
-              ListTileDense(
-                leadingWidget: Icon(Icons.stars),
-                titleText: "Account",
-                trailingIconData: Icons.arrow_forward_ios,
-                onTap: () {},
-              ),
-              Divider(
-                height: 0,
-                thickness: 1,
-                indent: 70,
-              ),
-              ListTileDense(
-                leadingWidget: Icon(Icons.stars),
-                titleText: "Chats",
-                trailingIconData: Icons.arrow_forward_ios,
-                onTap: () {},
-              ),
-              Divider(
-                height: 0,
-                thickness: 1,
-                indent: 70,
-              ),
-              ListTileDense(
-                leadingWidget: Icon(Icons.stars),
-                titleText: "Notifications",
-                trailingIconData: Icons.arrow_forward_ios,
-                onTap: () {},
-              ),
-              Divider(
-                height: 0,
-                thickness: 1,
-                indent: 70,
-              ),
-              ListTileDense(
-                leadingWidget: Icon(Icons.stars),
-                titleText: "Payments",
-                trailingIconData: Icons.arrow_forward_ios,
-                onTap: () {},
-              ),
-              Divider(
-                height: 0,
-                thickness: 1,
-                indent: 70,
-              ),
-              ListTileDense(
-                leadingWidget: Icon(Icons.stars),
-                titleText: "Storage and Data",
-                trailingIconData: Icons.arrow_forward_ios,
-                onTap: () {},
-              ),
-              Divider(
-                height: 0,
-                thickness: 1,
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Divider(
-                height: 0,
-                thickness: 1,
-              ),
-              ListTileDense(
-                leadingWidget: Icon(Icons.stars),
-                titleText: "Help",
-                trailingIconData: Icons.arrow_forward_ios,
-                onTap: () {},
-              ),
-              Divider(
-                height: 0,
-                thickness: 1,
-                indent: 70,
-              ),
-              ListTileDense(
-                leadingWidget: Icon(Icons.stars),
-                titleText: "Tell a Friend",
-                trailingIconData: Icons.arrow_forward_ios,
-                onTap: () {},
-              ),
-              Divider(
-                height: 0,
-                thickness: 1,
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Text(
-                "from",
-                textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.grey),
-              ),
-              Text(
-                "FACEBOOK",
-                textAlign: TextAlign.center,
+        title: _scroll
+            ? Text(
+                "Settings",
                 style: TextStyle(
-                  color: Colors.grey,
+                  color: Theme.of(context).appBarTheme.titleTextStyle.color,
                 ),
               )
-            ],
+            : Text(
+                "",
+                style: TextStyle(
+                  color: Theme.of(context).appBarTheme.titleTextStyle.color,
+                ),
+              ),
+      ),
+      body: SafeArea(
+        child: ColoredBox(
+          color: Theme.of(context).primaryColor,
+          child: SingleChildScrollView(
+            controller: _controller,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(
+                    top: 10,
+                    left: 20,
+                  ),
+                  child: Text(
+                    "Settings",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Divider(
+                  height: 0,
+                  thickness: 1,
+                ),
+                ListTileComponent(
+                  leadingWidget: CircleAvatar(
+                    backgroundColor: Theme.of(context).accentColor,
+                  ),
+                  titleText: "Tenzin Tamdin",
+                  trailingIconData: Icons.arrow_forward_ios,
+                  secondText: "Conding and Wandering",
+                  onTap: () {
+                    print("my name");
+                  },
+                ),
+                Divider(
+                  height: 0,
+                  thickness: 1,
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Divider(
+                  height: 0,
+                  thickness: 1,
+                ),
+                ListTileDense(
+                  leadingWidget: Icon(
+                    Icons.stars,
+                    color: Theme.of(context).accentColor,
+                  ),
+                  titleText: "Starred Messages",
+                  trailingIconData: Icons.arrow_forward_ios,
+                  onTap: () {},
+                ),
+                Divider(
+                  height: 0,
+                  thickness: 1,
+                  indent: 70,
+                ),
+                ListTileDense(
+                  leadingWidget: Icon(
+                    Icons.stars,
+                    color: Theme.of(context).accentColor,
+                  ),
+                  titleText: "WhatsApp Web/Destop",
+                  trailingIconData: Icons.arrow_forward_ios,
+                  onTap: () {},
+                ),
+                Divider(
+                  height: 0,
+                  thickness: 1,
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Divider(
+                  height: 0,
+                  thickness: 1,
+                ),
+                ListTileDense(
+                  leadingWidget: Icon(
+                    Icons.stars,
+                    color: Theme.of(context).accentColor,
+                  ),
+                  titleText: "Account",
+                  trailingIconData: Icons.arrow_forward_ios,
+                  onTap: () {},
+                ),
+                Divider(
+                  height: 0,
+                  thickness: 1,
+                  indent: 70,
+                ),
+                ListTileDense(
+                  leadingWidget: Icon(
+                    Icons.stars,
+                    color: Theme.of(context).accentColor,
+                  ),
+                  titleText: "Chats",
+                  trailingIconData: Icons.arrow_forward_ios,
+                  onTap: () {},
+                ),
+                Divider(
+                  height: 0,
+                  thickness: 1,
+                  indent: 70,
+                ),
+                ListTileDense(
+                  leadingWidget: Icon(
+                    Icons.stars,
+                    color: Theme.of(context).accentColor,
+                  ),
+                  titleText: "Notifications",
+                  trailingIconData: Icons.arrow_forward_ios,
+                  onTap: () {},
+                ),
+                Divider(
+                  height: 0,
+                  thickness: 1,
+                  indent: 70,
+                ),
+                ListTileDense(
+                  leadingWidget: Icon(
+                    Icons.stars,
+                    color: Theme.of(context).accentColor,
+                  ),
+                  titleText: "Payments",
+                  trailingIconData: Icons.arrow_forward_ios,
+                  onTap: () {},
+                ),
+                Divider(
+                  height: 0,
+                  thickness: 1,
+                  indent: 70,
+                ),
+                ListTileDense(
+                  leadingWidget: Icon(
+                    Icons.stars,
+                    color: Theme.of(context).accentColor,
+                  ),
+                  titleText: "Storage and Data",
+                  trailingIconData: Icons.arrow_forward_ios,
+                  onTap: () {},
+                ),
+                Divider(
+                  height: 0,
+                  thickness: 1,
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Divider(
+                  height: 0,
+                  thickness: 1,
+                ),
+                ListTileDense(
+                  leadingWidget: Icon(
+                    Icons.stars,
+                    color: Theme.of(context).accentColor,
+                  ),
+                  titleText: "Help",
+                  trailingIconData: Icons.arrow_forward_ios,
+                  onTap: () {},
+                ),
+                Divider(
+                  height: 0,
+                  thickness: 1,
+                  indent: 70,
+                ),
+                ListTileDense(
+                  leadingWidget: Icon(
+                    Icons.stars,
+                    color: Theme.of(context).accentColor,
+                  ),
+                  titleText: "Tell a Friend",
+                  trailingIconData: Icons.arrow_forward_ios,
+                  onTap: () {},
+                ),
+                Divider(
+                  height: 0,
+                  thickness: 1,
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Text(
+                  "from",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.grey),
+                ),
+                Text(
+                  "FACEBOOK",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.grey,
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

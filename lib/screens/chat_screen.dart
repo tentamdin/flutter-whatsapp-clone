@@ -38,7 +38,19 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: _scroll ? Text("Chats") : Text(""),
+        title: _scroll
+            ? Text(
+                "Chats",
+                style: TextStyle(
+                  color: Theme.of(context).appBarTheme.titleTextStyle.color,
+                ),
+              )
+            : Text(
+                "",
+                style: TextStyle(
+                  color: Theme.of(context).appBarTheme.titleTextStyle.color,
+                ),
+              ),
         leadingWidth: 80,
         leading: AppbarLeading(
           leadingText: "Edit",
@@ -55,7 +67,7 @@ class _ChatScreenState extends State<ChatScreen> {
         child: SingleChildScrollView(
           controller: _controller,
           child: Container(
-            color: Colors.white,
+            color: Theme.of(context).primaryColor,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,10 +77,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   child: Text(
                     "Chats",
                     textAlign: TextAlign.left,
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                   ),
                 ),
                 Padding(
@@ -78,22 +87,39 @@ class _ChatScreenState extends State<ChatScreen> {
                     decoration: new InputDecoration(
                       prefixIcon: Icon(
                         Icons.search,
-                        color: Colors.grey.shade800,
+                        color: Theme.of(context)
+                            .inputDecorationTheme
+                            .prefixStyle
+                            .color,
                       ),
                       hintText: "Search",
                       filled: true,
-                      fillColor: Colors.grey.shade300,
+                      fillColor:
+                          Theme.of(context).inputDecorationTheme.fillColor,
                       contentPadding: EdgeInsets.all(0),
-                      hintStyle: TextStyle(color: Colors.grey.shade800),
+                      hintStyle: TextStyle(
+                          color: Theme.of(context)
+                              .inputDecorationTheme
+                              .hintStyle
+                              .color),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10.0)),
                         borderSide: BorderSide(
-                          color: Colors.grey.shade300,
+                          color: Theme.of(context)
+                              .inputDecorationTheme
+                              .enabledBorder
+                              .borderSide
+                              .color,
                         ),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                        borderSide: BorderSide(color: Colors.grey.shade300),
+                        borderSide: BorderSide(
+                            color: Theme.of(context)
+                                .inputDecorationTheme
+                                .focusedBorder
+                                .borderSide
+                                .color),
                       ),
                     ),
                   ),
@@ -106,31 +132,13 @@ class _ChatScreenState extends State<ChatScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      TextButton(
-                        child: Text('Broadcast Lists'),
-                        style: TextButton.styleFrom(
-                          primary: Colors.blue.shade900,
-                          textStyle: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                          ),
-                        ),
-                        onPressed: () {
-                          print('Pressed');
-                        },
+                      AppbarLeading(
+                        leadingText: "Broadcast Lists",
+                        leadingOnPressed: () {},
                       ),
-                      TextButton(
-                        child: Text('New Group'),
-                        style: TextButton.styleFrom(
-                          primary: Colors.blue.shade900,
-                          textStyle: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                          ),
-                        ),
-                        onPressed: () {
-                          print('Pressed');
-                        },
+                      AppbarLeading(
+                        leadingText: "New Group",
+                        leadingOnPressed: () {},
                       ),
                     ],
                   ),
@@ -143,11 +151,10 @@ class _ChatScreenState extends State<ChatScreen> {
                   return Column(
                     children: <Widget>[
                       Container(
-                        color: Colors.white,
+                        color: Theme.of(context).primaryColor,
                         child: ListTile(
                           leading: CircleAvatar(
-                            foregroundColor: Theme.of(context).primaryColor,
-                            backgroundImage: NetworkImage(data.avatarUrl),
+                            backgroundColor: Theme.of(context).accentColor,
                           ),
                           title: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -158,9 +165,7 @@ class _ChatScreenState extends State<ChatScreen> {
                               ),
                               Text(
                                 data.time,
-                                style: TextStyle(
-                                    color: Colors.grey.shade900,
-                                    fontSize: 14.0),
+                                style: TextStyle(fontSize: 14.0),
                               ),
                             ],
                           ),
@@ -169,7 +174,8 @@ class _ChatScreenState extends State<ChatScreen> {
                             child: Text(
                               data.message,
                               style: TextStyle(
-                                  color: Colors.grey.shade900, fontSize: 15.0),
+                                fontSize: 15.0,
+                              ),
                             ),
                           ),
                         ),

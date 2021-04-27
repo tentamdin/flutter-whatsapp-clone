@@ -13,7 +13,7 @@ class AppbarActionBtn extends StatelessWidget {
       child: IconButton(
         icon: Icon(
           iconLabel,
-          color: Colors.blue.shade900,
+          color: Theme.of(context).accentColor,
         ),
         onPressed: onPressed,
       ),
