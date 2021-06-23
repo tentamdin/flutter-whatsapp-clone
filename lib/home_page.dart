@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_whatsapp_clone/screens/call_screen.dart';
-import 'package:flutter_whatsapp_clone/screens/camera_screen.dart';
-import 'package:flutter_whatsapp_clone/screens/chat_screen.dart';
-import 'package:flutter_whatsapp_clone/screens/setting_screen.dart';
-import 'package:flutter_whatsapp_clone/screens/status_screen.dart';
+import 'package:flutter_whatsapp_clone/screens/calls/call_screen.dart';
+import 'package:flutter_whatsapp_clone/screens/camera/camera_screen.dart';
+import 'package:flutter_whatsapp_clone/screens/chats/chat_screen.dart';
+import 'package:flutter_whatsapp_clone/screens/settings/setting_screen.dart';
+import 'package:flutter_whatsapp_clone/screens/status/status_screen.dart';
 
 class HomePage extends StatefulWidget {
   @override

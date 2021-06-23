@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:flutter_whatsapp_clone/components/appbar_action_btn.dart';
 import 'package:flutter_whatsapp_clone/components/appbar_leading.dart';
+import 'package:flutter_whatsapp_clone/components/appbar_title.dart';
 import 'package:flutter_whatsapp_clone/models/chat_model.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -14,8 +15,7 @@ class _ChatScreenState extends State<ChatScreen> {
   ScrollController _controller;
 
   _scrollListener() {
-    if (_controller.offset <= _controller.position.minScrollExtent &&
-        !_controller.position.outOfRange) {
+    if (_controller.offset <= 29) {
       setState(() {
         _scroll = false;
       });
@@ -39,17 +39,11 @@ class _ChatScreenState extends State<ChatScreen> {
       appBar: AppBar(
         elevation: 0,
         title: _scroll
-            ? Text(
-                "Chats",
-                style: TextStyle(
-                  color: Theme.of(context).appBarTheme.titleTextStyle.color,
-                ),
+            ? AppBarTitleText(
+                title: "Chats",
               )
-            : Text(
-                "",
-                style: TextStyle(
-                  color: Theme.of(context).appBarTheme.titleTextStyle.color,
-                ),
+            : AppBarTitleText(
+                title: "",
               ),
         leadingWidth: 80,
         leading: AppbarLeading(

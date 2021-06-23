@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
+import 'package:flutter_whatsapp_clone/components/appbar_title.dart';
 import 'package:flutter_whatsapp_clone/components/listTile_component.dart';
 import 'package:flutter_whatsapp_clone/components/listtile_dense.dart';
 
@@ -10,12 +11,10 @@ class SettingScreen extends StatefulWidget {
 
 class _SettingScreenState extends State<SettingScreen> {
   bool _scroll = false;
-
   ScrollController _controller;
 
   _scrollListener() {
-    if (_controller.offset <= _controller.position.minScrollExtent &&
-        !_controller.position.outOfRange) {
+    if (_controller.offset <= 47) {
       setState(() {
         _scroll = false;
       });
@@ -37,22 +36,15 @@ class _SettingScreenState extends State<SettingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // backgroundColor: _scroll ? Colors.white : Colors.transparent,
-        elevation: 0,
-        title: _scroll
-            ? Text(
-                "Settings",
-                style: TextStyle(
-                  color: Theme.of(context).appBarTheme.titleTextStyle.color,
-                ),
-              )
-            : Text(
-                "",
-                style: TextStyle(
-                  color: Theme.of(context).appBarTheme.titleTextStyle.color,
-                ),
-              ),
-      ),
+          // backgroundColor: _scroll ? Colors.white : Colors.transparent,
+          elevation: 0,
+          title: _scroll
+              ? AppBarTitleText(
+                  title: "Settings",
+                )
+              : AppBarTitleText(
+                  title: "",
+                )),
       body: SafeArea(
         child: ColoredBox(
           color: Theme.of(context).primaryColor,
