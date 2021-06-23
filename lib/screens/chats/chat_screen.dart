@@ -2,6 +2,8 @@ import "package:flutter/material.dart";
 import 'package:flutter_whatsapp_clone/components/appbar_action_btn.dart';
 import 'package:flutter_whatsapp_clone/components/appbar_leading.dart';
 import 'package:flutter_whatsapp_clone/components/appbar_title.dart';
+import 'package:flutter_whatsapp_clone/components/screen_title.dart';
+import 'package:flutter_whatsapp_clone/components/search_bar.dart';
 import 'package:flutter_whatsapp_clone/models/chat_model.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -66,58 +68,8 @@ class _ChatScreenState extends State<ChatScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 20, bottom: 10),
-                  child: Text(
-                    "Chats",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, right: 20, bottom: 10),
-                  child: TextField(
-                    decoration: new InputDecoration(
-                      prefixIcon: Icon(
-                        Icons.search,
-                        color: Theme.of(context)
-                            .inputDecorationTheme
-                            .prefixStyle
-                            .color,
-                      ),
-                      hintText: "Search",
-                      filled: true,
-                      fillColor:
-                          Theme.of(context).inputDecorationTheme.fillColor,
-                      contentPadding: EdgeInsets.all(0),
-                      hintStyle: TextStyle(
-                          color: Theme.of(context)
-                              .inputDecorationTheme
-                              .hintStyle
-                              .color),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                        borderSide: BorderSide(
-                          color: Theme.of(context)
-                              .inputDecorationTheme
-                              .enabledBorder
-                              .borderSide
-                              .color,
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                        borderSide: BorderSide(
-                            color: Theme.of(context)
-                                .inputDecorationTheme
-                                .focusedBorder
-                                .borderSide
-                                .color),
-                      ),
-                    ),
-                  ),
-                ),
+                ScreenTitle(title: "Chats"),
+                SearchBar(),
                 Padding(
                   padding: const EdgeInsets.only(
                     left: 15,

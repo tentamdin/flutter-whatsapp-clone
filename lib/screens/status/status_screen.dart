@@ -75,7 +75,9 @@ class _StatusScreenState extends State<StatusScreen> {
                 ),
                 SearchBar(),
                 Container(
-                  margin: EdgeInsets.all(0),
+                  margin: EdgeInsets.only(
+                    top: 30,
+                  ),
                   decoration: BoxDecoration(
                       border: Border.all(
                         width: 0.1,
