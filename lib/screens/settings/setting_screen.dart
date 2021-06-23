@@ -3,6 +3,7 @@ import "package:flutter/material.dart";
 import 'package:flutter_whatsapp_clone/components/appbar_title.dart';
 import 'package:flutter_whatsapp_clone/components/listTile_component.dart';
 import 'package:flutter_whatsapp_clone/components/listtile_dense.dart';
+import 'package:flutter_whatsapp_clone/components/screen_title.dart';
 
 class SettingScreen extends StatefulWidget {
   @override
@@ -53,17 +54,7 @@ class _SettingScreenState extends State<SettingScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                    top: 10,
-                    left: 20,
-                  ),
-                  child: Text(
-                    "Settings",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                  ),
-                ),
+                ScreenTitle(title: "Settings"),
                 SizedBox(
                   height: 10,
                 ),
