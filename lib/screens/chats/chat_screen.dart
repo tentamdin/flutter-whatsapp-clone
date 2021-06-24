@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import 'package:flutter_whatsapp_clone/components/appbar_action_btn.dart';
 import 'package:flutter_whatsapp_clone/components/appbar_leading.dart';
 import 'package:flutter_whatsapp_clone/components/appbar_title.dart';
+import 'package:flutter_whatsapp_clone/components/listTile_card.dart';
 import 'package:flutter_whatsapp_clone/components/screen_title.dart';
 import 'package:flutter_whatsapp_clone/components/search_bar.dart';
 import 'package:flutter_whatsapp_clone/models/chat_model.dart';
@@ -98,33 +99,57 @@ class _ChatScreenState extends State<ChatScreen> {
                     children: <Widget>[
                       Container(
                         color: Theme.of(context).primaryColor,
-                        child: ListTile(
-                          leading: CircleAvatar(
+                        child: ListTileCard(
+                          onTap: () {},
+                          leadingWiget: CircleAvatar(
                             backgroundColor: Theme.of(context).accentColor,
                           ),
-                          title: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Text(
-                                data.name,
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                data.time,
-                                style: TextStyle(fontSize: 14.0),
-                              ),
-                            ],
-                          ),
-                          subtitle: Container(
-                            padding: const EdgeInsets.only(top: 5.0),
+                          title: data.name,
+                          trailingWiget1: Padding(
+                            padding: const EdgeInsets.only(
+                              bottom: 20,
+                            ),
                             child: Text(
-                              data.message,
-                              style: TextStyle(
-                                fontSize: 15.0,
-                              ),
+                              data.time,
+                              style: TextStyle(fontSize: 14.0),
+                            ),
+                          ),
+                          trailingWiget2: Container(),
+                          subtitleWidget: Text(
+                            data.message,
+                            maxLines: 2,
+                            style: TextStyle(
+                              fontSize: 15.0,
                             ),
                           ),
                         ),
+                        // ListTile(
+                        //   leading: CircleAvatar(
+                        //     backgroundColor: Theme.of(context).accentColor,
+                        //   ),
+                        //   title: Row(
+                        //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        //     children: <Widget>[
+                        //       Text(
+                        //         data.name,
+                        //         style: TextStyle(fontWeight: FontWeight.bold),
+                        //       ),
+                        //       Text(
+                        //         data.time,
+                        //         style: TextStyle(fontSize: 14.0),
+                        //       ),
+                        //     ],
+                        //   ),
+                        //   subtitle: Container(
+                        //     padding: const EdgeInsets.only(top: 5.0),
+                        //     child: Text(
+                        //       data.message,
+                        //       style: TextStyle(
+                        //         fontSize: 15.0,
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
                       ),
                       Divider(
                         height: 0.0,
