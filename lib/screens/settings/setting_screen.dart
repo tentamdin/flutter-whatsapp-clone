@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_whatsapp_clone/components/appbar_title.dart';
-import 'package:flutter_whatsapp_clone/components/listTile_component.dart';
+import 'package:flutter_whatsapp_clone/components/listTile_card.dart';
 import 'package:flutter_whatsapp_clone/components/listtile_dense.dart';
 import 'package:flutter_whatsapp_clone/components/screen_title.dart';
+import 'package:flutter_whatsapp_clone/constants.dart';
+import 'Widgets/center_text.dart';
 
 class SettingScreen extends StatefulWidget {
   @override
@@ -62,16 +64,20 @@ class _SettingScreenState extends State<SettingScreen> {
                   height: 0,
                   thickness: 1,
                 ),
-                ListTileComponent(
-                  leadingWidget: CircleAvatar(
+                ListTileCard(
+                  onTap: () {},
+                  title: "Tenzin Tamdin",
+                  leadingWiget: CircleAvatar(
                     backgroundColor: Theme.of(context).accentColor,
                   ),
-                  titleText: "Tenzin Tamdin",
-                  trailingIconData: Icons.arrow_forward_ios,
-                  secondText: "Conding and Wandering",
-                  onTap: () {
-                    print("my name");
-                  },
+                  trailingWiget1: IconButton(
+                    icon: Icon(
+                      Icons.arrow_forward_ios,
+                    ),
+                    onPressed: () {},
+                  ),
+                  trailingWiget2: Container(),
+                  subtitleWidget: Text("Coding and Wandering"),
                 ),
                 Divider(
                   height: 0,
@@ -84,33 +90,29 @@ class _SettingScreenState extends State<SettingScreen> {
                   height: 0,
                   thickness: 1,
                 ),
-                ListTileDense(
-                  leadingWidget: Icon(
-                    Icons.stars,
-                    color: Theme.of(context).accentColor,
-                  ),
-                  titleText: "Starred Messages",
-                  trailingIconData: Icons.arrow_forward_ios,
-                  onTap: () {},
-                ),
-                Divider(
-                  height: 0,
-                  thickness: 1,
-                  indent: 70,
-                ),
-                ListTileDense(
-                  leadingWidget: Icon(
-                    Icons.stars,
-                    color: Theme.of(context).accentColor,
-                  ),
-                  titleText: "WhatsApp Web/Destop",
-                  trailingIconData: Icons.arrow_forward_ios,
-                  onTap: () {},
-                ),
-                Divider(
-                  height: 0,
-                  thickness: 1,
-                ),
+                ...settingList
+                    .map((data) {
+                      return Column(
+                        children: [
+                          ListTileDense(
+                            leadingWidget: Icon(
+                              Icons.stars,
+                              color: Theme.of(context).accentColor,
+                            ),
+                            titleText: data,
+                            trailingIconData: Icons.arrow_forward_ios,
+                            onTap: () {},
+                          ),
+                          Divider(
+                            height: 0,
+                            thickness: 1,
+                            indent: settingList.indexOf(data) == 1 ? 0 : 70,
+                          ),
+                        ],
+                      );
+                    })
+                    .toList()
+                    .sublist(0, 2),
                 SizedBox(
                   height: 30,
                 ),
@@ -118,75 +120,29 @@ class _SettingScreenState extends State<SettingScreen> {
                   height: 0,
                   thickness: 1,
                 ),
-                ListTileDense(
-                  leadingWidget: Icon(
-                    Icons.stars,
-                    color: Theme.of(context).accentColor,
-                  ),
-                  titleText: "Account",
-                  trailingIconData: Icons.arrow_forward_ios,
-                  onTap: () {},
-                ),
-                Divider(
-                  height: 0,
-                  thickness: 1,
-                  indent: 70,
-                ),
-                ListTileDense(
-                  leadingWidget: Icon(
-                    Icons.stars,
-                    color: Theme.of(context).accentColor,
-                  ),
-                  titleText: "Chats",
-                  trailingIconData: Icons.arrow_forward_ios,
-                  onTap: () {},
-                ),
-                Divider(
-                  height: 0,
-                  thickness: 1,
-                  indent: 70,
-                ),
-                ListTileDense(
-                  leadingWidget: Icon(
-                    Icons.stars,
-                    color: Theme.of(context).accentColor,
-                  ),
-                  titleText: "Notifications",
-                  trailingIconData: Icons.arrow_forward_ios,
-                  onTap: () {},
-                ),
-                Divider(
-                  height: 0,
-                  thickness: 1,
-                  indent: 70,
-                ),
-                ListTileDense(
-                  leadingWidget: Icon(
-                    Icons.stars,
-                    color: Theme.of(context).accentColor,
-                  ),
-                  titleText: "Payments",
-                  trailingIconData: Icons.arrow_forward_ios,
-                  onTap: () {},
-                ),
-                Divider(
-                  height: 0,
-                  thickness: 1,
-                  indent: 70,
-                ),
-                ListTileDense(
-                  leadingWidget: Icon(
-                    Icons.stars,
-                    color: Theme.of(context).accentColor,
-                  ),
-                  titleText: "Storage and Data",
-                  trailingIconData: Icons.arrow_forward_ios,
-                  onTap: () {},
-                ),
-                Divider(
-                  height: 0,
-                  thickness: 1,
-                ),
+                ...settingList
+                    .map((data) {
+                      return Column(
+                        children: [
+                          ListTileDense(
+                            leadingWidget: Icon(
+                              Icons.stars,
+                              color: Theme.of(context).accentColor,
+                            ),
+                            titleText: data,
+                            trailingIconData: Icons.arrow_forward_ios,
+                            onTap: () {},
+                          ),
+                          Divider(
+                            height: 0,
+                            thickness: 1,
+                            indent: settingList.indexOf(data) == 6 ? 0 : 70,
+                          ),
+                        ],
+                      );
+                    })
+                    .toList()
+                    .sublist(2, 7),
                 SizedBox(
                   height: 30,
                 ),
@@ -194,48 +150,38 @@ class _SettingScreenState extends State<SettingScreen> {
                   height: 0,
                   thickness: 1,
                 ),
-                ListTileDense(
-                  leadingWidget: Icon(
-                    Icons.stars,
-                    color: Theme.of(context).accentColor,
-                  ),
-                  titleText: "Help",
-                  trailingIconData: Icons.arrow_forward_ios,
-                  onTap: () {},
-                ),
-                Divider(
-                  height: 0,
-                  thickness: 1,
-                  indent: 70,
-                ),
-                ListTileDense(
-                  leadingWidget: Icon(
-                    Icons.stars,
-                    color: Theme.of(context).accentColor,
-                  ),
-                  titleText: "Tell a Friend",
-                  trailingIconData: Icons.arrow_forward_ios,
-                  onTap: () {},
-                ),
-                Divider(
-                  height: 0,
-                  thickness: 1,
-                ),
+                ...settingList
+                    .map((data) {
+                      return Column(
+                        children: [
+                          ListTileDense(
+                            leadingWidget: Icon(
+                              Icons.stars,
+                              color: Theme.of(context).accentColor,
+                            ),
+                            titleText: data,
+                            trailingIconData: Icons.arrow_forward_ios,
+                            onTap: () {},
+                          ),
+                          Divider(
+                            height: 0,
+                            thickness: 1,
+                            indent: settingList.indexOf(data) == 8 ? 0 : 70,
+                          ),
+                        ],
+                      );
+                    })
+                    .toList()
+                    .sublist(7),
                 SizedBox(
                   height: 30,
                 ),
-                Text(
-                  "from",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.grey),
+                CenterText(
+                  label: "from",
                 ),
-                Text(
-                  "FACEBOOK",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.grey,
-                  ),
-                )
+                CenterText(
+                  label: "FACEBOOK",
+                ),
               ],
             ),
           ),

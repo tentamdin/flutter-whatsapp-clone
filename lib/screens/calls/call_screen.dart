@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import 'package:flutter_whatsapp_clone/components/appbar_action_btn.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_whatsapp_clone/components/appbar_leading.dart';
+import 'package:flutter_whatsapp_clone/components/listTile_card.dart';
 import 'package:flutter_whatsapp_clone/components/screen_title.dart';
 import 'package:flutter_whatsapp_clone/components/search_bar.dart';
 import 'package:flutter_whatsapp_clone/models/chat_model.dart';
@@ -45,43 +46,13 @@ class CallScreen extends StatelessWidget {
                   (data) {
                     return Column(
                       children: <Widget>[
-                        ListTile(
-                          leading: CircleAvatar(
+                        ListTileCard(
+                          onTap: () {},
+                          leadingWiget: CircleAvatar(
                             backgroundColor: Theme.of(context).accentColor,
                           ),
-                          title: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Text(
-                                data.name,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.normal,
-                                  color: Theme.of(context)
-                                      .appBarTheme
-                                      .titleTextStyle
-                                      .color,
-                                ),
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    data.time,
-                                    style: TextStyle(
-                                        // color: Colors.grey.shade900,
-                                        fontSize: 14.0),
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Icon(
-                                    Icons.info_outline,
-                                    color: Theme.of(context).accentColor,
-                                  )
-                                ],
-                              ),
-                            ],
-                          ),
-                          subtitle: Container(
+                          title: data.name,
+                          subtitleWidget: Container(
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
                                 children: [
@@ -102,6 +73,22 @@ class CallScreen extends StatelessWidget {
                                   ),
                                 ],
                               )),
+                          trailingWiget1: Padding(
+                            padding: const EdgeInsets.only(right: 10),
+                            child: Text(
+                              data.time,
+                              style: TextStyle(
+                                  // color: Colors.grey.shade900,
+                                  fontSize: 14.0),
+                            ),
+                          ),
+                          trailingWiget2: GestureDetector(
+                            onTap: () {},
+                            child: Icon(
+                              Icons.info_outline,
+                              color: Theme.of(context).accentColor,
+                            ),
+                          ),
                         ),
                         Divider(
                           height: 0.0,

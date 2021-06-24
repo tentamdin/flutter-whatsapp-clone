@@ -5,3 +5,15 @@ const kAppbarLeadingTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
   fontSize: 18.0,
 );
+
+const settingList = [
+  "Starred Messages",
+  "WhatsApp Web/Destop",
+  "Account",
+  "Chats",
+  "Notifications",
+  "Payments",
+  "Storage and Data",
+  "Help",
+  "Tell a Friend",
+];
